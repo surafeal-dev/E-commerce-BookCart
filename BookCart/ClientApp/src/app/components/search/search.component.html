@@ -1,0 +1,21 @@
+@if(filterSuggetions$ | async; as filterSuggetions){
+<form>
+  <input
+    (keydown.enter)="searchBooks()"
+    class="searchbox"
+    type="search"
+    aria-label="search"
+    placeholder="Search books or authors"
+    [formControl]="searchControl"
+    [matAutocomplete]="auto"
+    (search)="cancelSearch()"
+  />
+  <mat-autocomplete (optionSelected)="searchBooks()" #auto="matAutocomplete">
+    @for (book of filterSuggetions; track book) {
+    <mat-option [value]="book.title">
+      {{ book.title }}
+    </mat-option>
+    }
+  </mat-autocomplete>
+</form>
+}

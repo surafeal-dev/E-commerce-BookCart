@@ -1,0 +1,16 @@
+.preview-image {
+  max-height: 350px;
+  max-width: 200px;
+  border: 2px dashed #ababab;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #00a7a7;
+  border-radius: 4px;
+}

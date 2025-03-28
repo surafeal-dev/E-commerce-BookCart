@@ -1,0 +1,29 @@
+@if( vm$ | async; as vm){
+<div class="row no-gutters pt-3">
+  <div class="col-md-3 col-sm-12">
+    <div class="filter-container">
+      <app-book-filter [category]="vm.selectedCategory"></app-book-filter>
+      <app-price-filter></app-price-filter>
+    </div>
+  </div>
+  <div class="col mb-3">
+    @if (vm.bookList.length > 0) {
+    <div class="d-flex justify-content-start card-deck-container mb-4">
+      @for (book of vm.bookList; track book) {
+      <div class="p-1">
+        <app-book-card [book]="book"></app-book-card>
+      </div>
+      }
+    </div>
+    } @else {
+    <div class="d-flex justify-content-center mt-4">
+      <h1 class="display-4">No books found.</h1>
+    </div>
+    }
+  </div>
+</div>
+} @else {
+<div class="d-flex align-items-center justify-content-center mt-4">
+  <mat-spinner></mat-spinner>
+</div>
+}

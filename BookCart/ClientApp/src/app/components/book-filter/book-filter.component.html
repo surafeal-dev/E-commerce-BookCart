@@ -1,0 +1,15 @@
+<mat-list class="p-1 mat-elevation-z2">
+  <mat-list-item [class.active-category]="!category" routerLink="/">
+    All Categories
+  </mat-list-item>
+  @for (c of categories$ | async; track c) {
+  <mat-list-item
+    [class.active-category]="category == (c.categoryName | lowercase)"
+    routerLink="/filter"
+    [queryParams]="{ category: c.categoryName | lowercase }"
+  >
+    {{ c.categoryName }}
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  }
+</mat-list>
